@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".view.MainActivity">
+
+    <!-- Definição das guidelines. São duas guidelines horizontais
+         que dividem a tela em 30% e 70% -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- Elementos para entrada de dados, utilizaremos uma textview
+         para mostrar a mensagem e um edittext para a leitura de dados.
+         O posicionamento do textview é em relação ao pai contudo
+         o edittext é posicionado em relação ao textview e ao pai. -->
+
+    <TextView
+        android:id="@+id/textview_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/temperature"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edittext_temperature"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_temperature"
+        android:inputType="numberDecimal|numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_temperature"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textview_temperature" />
+
+    <!-- Os botões de ação formam uma chain visto que estão relacionados
+    um com outro e também com a guideline de 30%. -->
+
+    <Button
+        android:id="@+id/btn_celsiusToF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/celsiusToF"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toTopOf="@id/btn_fahrenheitToC"
+        app:layout_constraintEnd_toEndOf="@id/btn_kelvinToC"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/btn_kelvinToC"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal1" />
+
+    <Button
+        android:id="@+id/btn_fahrenheitToC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fahrenheitToC"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@id/btn_kelvinToC"
+        app:layout_constraintEnd_toEndOf="@id/btn_kelvinToC"
+        app:layout_constraintTop_toBottomOf="@id/btn_celsiusToF"
+        app:layout_constraintBottom_toTopOf="@id/btn_kelvinToC"/>
+
+    <Button
+        android:id="@+id/btn_kelvinToC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kelvinToC"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="@id/guideline_vertical1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_fahrenheitToC"
+        app:layout_constraintBottom_toTopOf="@id/textview_result_number"/>
+
+    <!-- Botões da direita -->
+
+    <Button
+        android:id="@+id/btn_celsiusToK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/celsiusToK"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@id/btn_kelvinToF"
+        app:layout_constraintEnd_toEndOf="@id/btn_kelvinToF"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal1"
+        app:layout_constraintBottom_toTopOf="@id/btn_fahrenheitToK"/>
+
+    <Button
+        android:id="@+id/btn_fahrenheitToK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fahrenheitToK"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@id/btn_kelvinToF"
+        app:layout_constraintEnd_toEndOf="@id/btn_kelvinToF"
+        app:layout_constraintTop_toBottomOf="@id/btn_celsiusToK"
+        app:layout_constraintBottom_toTopOf="@id/btn_kelvinToF"/>
+
+    <Button
+        android:id="@+id/btn_kelvinToF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kelvinToF"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_vertical1"
+        app:layout_constraintTop_toBottomOf="@id/btn_fahrenheitToK"
+        app:layout_constraintBottom_toTopOf="@id/textview_result_number"/>
+
+    <!-- São duas textview que apresentam o resultado, o posicionamento
+    respeita restrições da guideline de 70%. -->
+
+    <TextView
+        android:id="@+id/textview_result_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/output"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_result_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/output"
+        app:layout_constraintEnd_toEndOf="@+id/textview_result_number"
+        app:layout_constraintStart_toStartOf="@+id/textview_result_number"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

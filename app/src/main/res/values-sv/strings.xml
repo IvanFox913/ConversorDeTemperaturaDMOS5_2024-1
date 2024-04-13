@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Temperaturomvandlare</string>
+    <string name="temperature">Temperatur:</string>
+    <string name="hint_temperature">Skriv in temperaturen</string>
+    <string name="msgCtoF">Omvandling från Celsius till Fahrenheit genomförd.</string>
+    <string name="msgCtoK">Omvandling från Celsius till Kelvin genomförd.</string>
+    <string name="msgFtoC">Omvandling från Fahrenheit till Celsius genomförd.</string>
+    <string name="msgFtoK">Omvandling från Fahrenheit till Kelvin genomförd.</string>
+    <string name="msgKtoC">Omvandling från Kelvin till Celsius genomförd.</string>
+    <string name="msgKtoF">Omvandling från Kelvin till Fahrenheit genomförd.</string>
+    <string name="error_popup_notify">Det var inte möjligt att genomföra omvandlingen med de angivna uppgifterna.</string>
+</resources>
